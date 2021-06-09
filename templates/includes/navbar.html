@@ -73,21 +73,16 @@
         <!-- col.// -->
         <a href="{% url 'store' %}" class="btn btn-outline-primary"> Store </a>
         <div class="col-lg col-md-6 col-sm-12 col">
-          <form action="#" class="search">
-            <div class="input-group w-100">
-              <input
-                type="text"
-                class="form-control"
-                style="width: 60%"
-                placeholder="Search"
-              />
-
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="submit">
-                  <i class="fa fa-search"></i>
-                </button>
+          <form action="{% url 'search' %}" method="post" class="search">
+              {% csrf_token %}
+              <div class="input-group w-100">
+                  <input type="text" class="form-control" name="search" style="width: 60%" placeholder="Search"/>
+                  <div class="input-group-append">
+                      <button class="btn btn-primary" type="submit">
+                          <i class="fa fa-search"></i>
+                      </button>
+                  </div>
               </div>
-            </div>
           </form>
           <!-- search-wrap .end// -->
         </div>
@@ -106,7 +101,7 @@
               <div class="icon icon-sm rounded-circle border">
                 <i class="fa fa-shopping-cart"></i>
               </div>
-              <span class="badge badge-pill badge-danger notify">0</span>
+              <span class="badge badge-pill badge-danger notify">{{ cart_count }}</span>
             </a>
           </div>
           <!-- widgets-wrap.// -->
