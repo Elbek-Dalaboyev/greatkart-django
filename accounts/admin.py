@@ -3,6 +3,7 @@ from django.contrib.auth.admin import UserAdmin
 from .models import Account
 
 # Register your models here.
+# Nodir 
 
 class AccountAdmin(UserAdmin):
     list_display = ('email', 'first_name', 'last_name', 'username', 'last_login', 'data_joined', 'is_active')
